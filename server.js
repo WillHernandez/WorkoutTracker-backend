@@ -8,7 +8,7 @@ require('dotenv').config();
 
 app.use(express.json());
 
-const whitelist = [process.env.LOCALHOST];
+const whitelist = [process.env.LOCALHOST, process.env.WORKOUTTRACKER];
 const corsOptions = {
 	origin: (origin, callback) => {
 		if(whitelist.indexOf(origin) !== -1 || !origin) {
@@ -33,7 +33,10 @@ const dbConnect = async () => {
 		await mongoose.connect(process.env.MONGO_URI);
 		const server = app.listen(port, () => {
 			console.log(`Connected to Database On Port: ${port}`);
+<<<<<<< HEAD
 			console.log(server.address().address, server.address().port);
+=======
+>>>>>>> 30bd9d0 (Added procfile)
 		})
 	} catch (err) {
 		console.error(err);

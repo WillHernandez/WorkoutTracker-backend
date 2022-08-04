@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const workoutRoutes = require('./routes/workouts');
 const cors = require('cors');
+const port = process.env.PORT || 80;
 require('dotenv').config();
 
 app.use(express.json());
@@ -30,8 +31,9 @@ app.use("/api/workouts", workoutRoutes);
 const dbConnect = async () => {
 	try {
 		await mongoose.connect(process.env.MONGO_URI);
-		app.listen(process.env.PORT, () => {
-			console.log(`Connected to Database On Port: ${process.env.PORT}`);
+		const server = app.listen(port, () => {
+			console.log(`Connected to Database On Port: ${port}`);
+			console.log(server.address().address, server.address().port);
 		})
 	} catch (err) {
 		console.error(err);

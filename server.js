@@ -33,10 +33,6 @@ const dbConnect = async () => {
 		await mongoose.connect(process.env.MONGO_URI);
 		const server = app.listen(port, () => {
 			console.log(`Connected to Database On Port: ${port}`);
-<<<<<<< HEAD
-			console.log(server.address().address, server.address().port);
-=======
->>>>>>> 30bd9d0 (Added procfile)
 		})
 	} catch (err) {
 		console.error(err);

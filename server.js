@@ -8,7 +8,7 @@ require('dotenv').config();
 
 app.use(express.json());
 
-const whitelist = [process.env.LOCALHOST, process.env.WORKOUTTRACKER, process.env.HEROKU];
+const whitelist = [process.env.WORKOUT_TRACKER];
 const corsOptions = {
 	origin: (origin, callback) => {
 		if(whitelist.indexOf(origin) !== -1 || !origin) {

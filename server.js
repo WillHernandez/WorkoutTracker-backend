@@ -31,7 +31,7 @@ app.use("/api/workouts", workoutRoutes);
 const dbConnect = async () => {
 	try {
 		await mongoose.connect(process.env.MONGO_URI);
-		const server = app.listen(port, () => {
+		app.listen(port, () => {
 			console.log(`Connected to Database On Port: ${port}`);
 		})
 	} catch (err) {

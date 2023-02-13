@@ -39,3 +39,5 @@ const dbConnect = async () => {
 	}
 }
 dbConnect();
+
+module.exports = app;
